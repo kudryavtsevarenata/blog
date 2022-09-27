@@ -88,3 +88,72 @@ header ul li ul li a{
     padding: 30px 0px;
     text-align: center;
 }
+.carousel-inner{
+    height: 400px;
+    border-radius: 10px;
+}
+.carousel{
+    height: 400px;
+}
+
+.carousel-caption-hack{
+    position: absolute;
+    bottom: 0.05rem;
+    margin-bottom: 13%;
+    color:#fff;
+    text-align: center;
+    width: 100%;
+    left:0%;
+    right: 0% ;
+    padding-top: 1.25rem;
+    padding-bottom: 0rem;
+}
+.carousel-caption h5{
+    font-size: 2rem;
+    background-color: #000000;
+    max-width: 100%;
+    padding: 0.3em;
+    opacity: 0.5;
+}
+.carousel-caption h5{
+    color:#ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+.carousel-caption h5 a:hover{
+    text-decoration: underline;
+}
+/*MAIN*/
+.main-content h2{
+    margin: 30px 0px;
+}
+.main-content .post{
+    margin-bottom: 3em;
+}
+.main-content .post-text{
+    background-color: white;
+    padding: 8px;
+    border-radius: 10px;
+}
+.main-content .post-text h3{
+    margin: 14px 0;
+}
+.main-content .post-text h3 a:hover{
+     text-decoration: underline;
+     color: #5c5b5b;
+}
+.main-content .post-text i{
+    margin-right: 14px;
+    margin-bottom: 14px;
+}
+
+/*SIDEBAR*/
+.search{
+    margin-top: 98px;
+}
+.sidebar .section{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}

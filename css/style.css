@@ -18,6 +18,17 @@ a{
     text-decoration: none;
     color: inherit;
 }
+input{
+    padding: 10px 12px;
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ececec;
+    line-height: 1.5rem;
+    color: #444444;
+
+}
+
 /*
     HEADER
 */
@@ -128,7 +139,7 @@ header ul li ul li a{
     margin: 30px 0px;
 }
 .main-content .post{
-    margin-bottom: 3em;
+    margin-bottom: 30px;
 }
 .main-content .post-text{
     background-color: white;
@@ -156,4 +167,29 @@ header ul li ul li a{
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 30px;
+}
+.sidebar .topics ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    border-top: 1px solid #e0e0e0;
+}
+.sidebar .topics ul li a{
+    display: block;
+    padding: 15px 0px 15 px 0px;
+    border-bottom: 1px solid #e0e0e0;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-weight: 500;
+    color: #5c5b5b;
+    font-size: 1.2em;
+}
+.sidebar .topics ul li a:hover{
+    padding-left: 10px;
+    transition: all 0.3s;
+}
+.footer{
+    background-color: #303036;
+    color: #d3d3d3;
+    position: relative;
 }

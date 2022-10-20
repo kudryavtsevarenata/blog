@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel= "stylesheet" href = "css/style.css">
+    <link rel= "stylesheet" href = "assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap" rel="stylesheet">
@@ -41,27 +41,80 @@
         </div>
     </header>
 
+    <!-- блок карусели -->
+    <div class = "container">
+        <div class = "row">
+            <h2 class = "slider-title">Топ публикации</h2>
+        </div>
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <!-- Индикаторы -->
+
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="img-fluid" src="assets/images/image1.jpg" alt="...">
+                <div class="carousel-caption-hack carousel-caption d-none d-md-block">
+                  <h5><a href = "#">First slide label</a></h5>
+                </div>
+              </div>
+              
+              <div class="carousel-item">
+                <img class="img-fluid" src="assets/images/image2.jpg" alt="...">
+                <div class="carousel-caption-hack carousel-caption d-none d-md-block">
+                    <h5><a href = "#">Second slide label</a></h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                  <img class="img-fluid" src="assets/images/image3.jpg" alt="...">
+                <div class="carousel-caption-hack carousel-caption d-none d-md-block">
+                    <h5><a href = "#">Third slide label</a></h5>
+                </div>
+              </div>
+            </div>
+            <!-- Элементы управления -->
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Предыдущий</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Следующий</span>
+            </a>
+        </div>
+    </div>
+
     <!--main-->
     <div class = "container">
       <div class = "content row">
         <div class = "main-content col-md-9 col-12">
-        <h2>Заголовок конкретной статьи</h2>
-
-          <div class="single_post row">
-            <div class="img col-12">
-              <img src="images/image3.jpg" alt="" class="img-thumbnail">
+        <h2>Последние публикации</h2>
+          <div class="post row">
+            <div class="img col-12 col-md-4">
+              <img src="assets/images/image3.jpg" alt="" class="img-thumbnail">
             </div>
-           <div class="info">
-            <i class="far fa-user">Имя автора</i>
-            <i class="far fa-calendar">Mar 11, 2022</i>
-           </div>
-            <div class="single_post-text col-12">
+            <div class="post-text col-12 col-md-8">
               <h3>
-                ЗАГОЛОВОК третий
+                <a href="#"> Прикольная статья на тему динамического программирования</a>
               </h3>
-              <p>
+              <i class="far fa-user">Имя автора</i>
+              <i class="far fa-calendar">Mar 11, 2022</i>
+              <p class="preview-text">
                 Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+              </p>
+            </div>
+          </div>
+
+          <div class="post row">
+            <div class="img col-12 col-md-4">
+              <img src="assets/images/image3.jpg" alt="" class="img-thumbnail">
+            </div>
+            <div class="post-text col-12 col-md-8">
+              <h3>
+                <a href="#"> Прикольная статья на тему динамического программирования</a>
+              </h3>
+              <i class="far fa-user">Имя автора</i>
+              <i class="far fa-calendar">Mar 11, 2022</i>
+              <p class="preview-text">
+                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
               </p>
             </div>
           </div>

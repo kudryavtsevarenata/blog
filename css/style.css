@@ -193,3 +193,24 @@ header ul li ul li a{
     color: #d3d3d3;
     position: relative;
 }
+/*
+SINGLE POST
+*/
+.single_post{
+    margin-bottom: 30px;
+}
+.single_post .info{
+    margin: 20px 0;
+    padding-left: 20px;
+}
+.single_post .info i{
+    display: inline-block;
+    margin-right: 20px;
+}
+.single_post a{
+    text-decoration: underline;
+}
+.single_post a:hover{
+    text-decoration: underline;
+    color: #008489;
+}

@@ -1,3 +1,4 @@
+<?php include ("path.php"); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,31 +16,9 @@
     <title>Blog</title>
   </head>
   <body>
-    <header class = "container-fluid">
-        <div class = "container">
-            <div class = "row">
-                <div class = "col-4">
-                    <h1>
-                        <a href = "#">  Blog  </a> 
-                    </h1>
-                </div>
-                <nav class = "col-8"> 
-                    <ul>
-                        <li><a href = "#">Главная</a></li>
-                        <li><a href = "#">О нас</a></li>
-                        <li><a href = "#">Услуги</a></li>
-                        <li>
-                            <a href = "#"> Кабинет </a>
-                            <ul>
-                                <li><a href = "#">Админ панель</a></li>
-                                <li><a href = "#">Выход</a></li>
-                            </ul>
-                        </li>
-                    </ul>    
-                </nav>
-            </div>
-        </div>
-    </header>
+  <?php
+  include("app/include/header.php");
+  ?>
 
     <!--main-->
     <div class = "container">
@@ -91,22 +70,7 @@
 
       </div>
     </div>
-    <!-- footer -->
-    <div class="footer container-fluid">
-      <div class="footer-content container">
-        <div class="row">
-          <div class="footer-section about col-md-4 col-12">
-            <h3 class="logo-text">Blog</h3>
-            <p>
-              Description
-            </p>
-            <div class="contacts">
-              <p>Designed by RK</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php include ("app/include/footer.php"); ?>
 
 
 

@@ -105,6 +105,7 @@ function insert($table, $params)
     $query = $pdo->prepare($sql);
     $query->execute($params);
     dbCheckError($query);
+    return $pdo->lastInsertId();
 }
 
 function update($table, $id, $params)
@@ -153,5 +154,5 @@ $params = [
 // tt(selectAll('users', $params));
 // insert('users', $arrData);
 // update('users', 5, $params)
-delete('users', 5);
+// delete('users', 5);
 ?>

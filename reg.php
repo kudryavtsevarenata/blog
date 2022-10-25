@@ -1,4 +1,6 @@
-<?php include ("path.php"); ?>
+<?php include ("path.php"); 
+include("app/controllers/users.php");
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,32 +24,32 @@
 
 <!--form-->
 <div class="container reg_form">
-    <form class="row justify-content-md-center" method="post" action="reg.html">
+    <form class="row justify-content-md-center" method="post" action="reg.php">
         <h2>Форма регистрации</h2>
         <div class="w-100"></div>
         <div class="col-12 mb-3 col-md-4">
             <label for="formGroupExampleInput" class="form-label">Логин</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Введите логин...">
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Введите логин..." name="login">
           </div>
           <div class="w-100"></div>
         <div class="col-12 mb-3 col-md-4">
           <label for="exampleInputEmail1" class="form-label">Email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите email...">
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите email..." name="mail">
           <div id="emailHelp" class="form-text">Ваш email адрес не будет использован для спама</div>
         </div>
         <div class="w-100"></div>
         <div class="col-12 mb-3 col-md-4">
           <label for="exampleInputPassword1" class="form-label">Пароль</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Введите пароль...">
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Введите пароль..." name="pass-first">
         </div>
         <div class="w-100"></div>
         <div class="col-12 mb-3 col-md-4">
             <label for="exampleInputPassword2" class="form-label">Повторите пароль</label>
-            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Повторите пароль...">
+            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Повторите пароль..." name="pass-second">
           </div>
           <div class="w-100"></div>
           <div class="col-12 mb-3 col-md-4">
-            <button type="button" class="btn btn-secondary">Регистрация</button>
+            <button type="submit" class="btn btn-secondary" name="button-reg">Регистрация</button>
             <a href="log.php">Авторизоваться</a>
           </div>
       </form>

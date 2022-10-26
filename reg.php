@@ -27,14 +27,18 @@ include("app/controllers/users.php");
     <form class="row justify-content-md-center" method="post" action="reg.php">
         <h2>Форма регистрации</h2>
         <div class="w-100"></div>
+        <div class="col-12 mb-3 col-md-4 err">
+          <p><?=$errMsg?></p>
+        </div>
+        <div class="w-100"></div>
         <div class="col-12 mb-3 col-md-4">
             <label for="formGroupExampleInput" class="form-label">Логин</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Введите логин..." name="login">
+            <input type="text" value="<?=$login?>" class="form-control" id="formGroupExampleInput" placeholder="Введите логин..." name="login">
           </div>
           <div class="w-100"></div>
         <div class="col-12 mb-3 col-md-4">
           <label for="exampleInputEmail1" class="form-label">Email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите email..." name="mail">
+          <input type="email" value="<?=$email?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите email..." name="mail">
           <div id="emailHelp" class="form-text">Ваш email адрес не будет использован для спама</div>
         </div>
         <div class="w-100"></div>

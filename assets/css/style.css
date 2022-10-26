@@ -236,3 +236,9 @@ forms
     margin-left: 55px;
     transition: all .3s;
 }
+/* FORMS (REG) */
+form div.error{
+    color: red;
+    font-style: italic;
+    font-size: 0.8rem;
+}

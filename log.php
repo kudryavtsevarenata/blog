@@ -23,7 +23,7 @@
 
 <!--form-->
 <div class="container reg_form">
-    <form class="row justify-content-md-center" method="post" action="log.html">
+    <form class="row justify-content-md-center" method="post" action=BASE_URL>
         <h2>Авторизация</h2>
         <div class="w-100"></div>
         <div class="col-12 mb-3 col-md-4">

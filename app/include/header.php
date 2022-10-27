@@ -12,11 +12,22 @@
                         <li><a href = "#">О нас</a></li>
                         <li><a href = "#">Услуги</a></li>
                         <li>
-                            <a href = "#"> Кабинет </a>
-                            <ul>
-                                <li><a href = "log.php">Админ панель</a></li>
-                                <li><a href = "#">Выход</a></li>
-                            </ul>
+                            <?php if (isset($_SESSION['id'])):?>
+                                <li><a href = "#"><?php echo $_SESSION['login'];?></a>
+                                <ul>
+                                    <?php if ($_SESSION['admin']):?>
+                                        <li><a href = "#">Админ панель</a></li>
+                                    <?php endif;?>
+                                    <li><a href = "#">Выход</a></li>
+                                </ul>
+                                </li>
+                            <?php else: ?>
+                                <a href="<?php echo BASE_URL . log.php; ?>">Авторизоваться</a>
+                                <ul>
+                                    <li><a href="<?php echo BASE_URL . reg.php; ?>">Регистрация</a></li>
+                                </ul>
+                            <?php endif; ?>
+                            
                         </li>
                     </ul>    
                 </nav>

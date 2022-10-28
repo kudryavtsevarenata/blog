@@ -18,13 +18,13 @@
                                     <?php if ($_SESSION['admin']):?>
                                         <li><a href = "#">Админ панель</a></li>
                                     <?php endif;?>
-                                    <li><a href = "#">Выход</a></li>
+                                    <li><a href = "<?php echo BASE_URL . "logout.php"; ?>">Выход</a></li>
                                 </ul>
                                 </li>
                             <?php else: ?>
-                                <a href="log.php">Авторизоваться</a>
+                                <a href="<?php echo BASE_URL . "log.php"; ?>">Авторизоваться</a>
                                 <ul>
-                                    <li><a href="reg.php">Регистрация</a></li>
+                                    <li><a href="<?php echo BASE_URL . "reg.php"; ?>">Регистрация</a></li>
                                 </ul>
                             <?php endif; ?>
                             

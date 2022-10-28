@@ -1,7 +1,23 @@
 <?php
 include ("app/database/db.php");
 $errMsg = '';
-if($_SERVER['REQUEST_METHOD'] === 'POST')
+
+function userAuth($mas)
+{
+    $_SESSION['id'] = $mas['id'];
+    $_SESSION['login'] = $mas['username'];
+    $_SESSION['admin'] = $mas['admin'];
+    if ($_SESSION['admin'])
+    {
+        header('location: ' . BASE_URL . admin/admin.php);
+    }
+    else{
+        header('location: ' . BASE_URL);
+    }
+}
+
+// для формы регистрации
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg']))
 {
     $login = trim($_POST['login']);
     $email = trim($_POST['mail']);
@@ -38,16 +54,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             ];
             $id = insert('users', $post);
             $user = selectOne('users', ['id' => $id]);
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['login'] = $user['username'];
-            $_SESSION['admin'] = $user['admin'];
-            if ($_SESSION['admin'])
-            {
-                header('location: ' . BASE_URL . admin/admin.php);
-            }
-            else{
-                header('location: ' . BASE_URL);
-            }
+            userAuth($user);
         }
     }
     
@@ -55,8 +62,34 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 }
 else
 {
-    echo 'GET';
     $login = '';
+    $email = '';
+}
+// код для авторизации
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["button-log"]))
+{
+    $email = trim($_POST['mail']);
+    $pass = trim($_POST['password']);
+    if ($email === '' || $pass === '')
+    {
+        $errMsg = "Не все поля заполнены!";
+    } 
+    else
+    {
+        $exist = selectOne('users', ['email' => $email]);
+        if($exist && password_verify($pass, $exist['password']))
+        {
+            userAuth($exist);
+        }
+        else
+        {
+            $errMsg = "Ошибка авторизации";
+        }
+    }
+    
+}
+else
+{
     $email = '';
 }
 

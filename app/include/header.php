@@ -22,9 +22,9 @@
                                 </ul>
                                 </li>
                             <?php else: ?>
-                                <a href="<?php echo BASE_URL . log.php; ?>">Авторизоваться</a>
+                                <a href="log.php">Авторизоваться</a>
                                 <ul>
-                                    <li><a href="<?php echo BASE_URL . reg.php; ?>">Регистрация</a></li>
+                                    <li><a href="reg.php">Регистрация</a></li>
                                 </ul>
                             <?php endif; ?>
                             

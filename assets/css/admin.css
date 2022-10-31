@@ -1,0 +1,168 @@
+*{
+    font-family: 'PT Sans Caption', sans-serif;
+}
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    color: #5c5b5b;
+}
+body
+{
+    background-color: #f6f6f6;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+input{
+    padding: 10px 12px;
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ececec;
+    line-height: 1.5rem;
+    color: #444444;
+
+}
+
+
+/*
+    HEADER menu
+*/
+header{
+    background: #008484;
+    height: 73px;
+}
+header *{
+    color:#fff;
+}
+header h1{
+    margin-top: 13px;
+}
+header h1 a{
+    color: #ffffff;
+}
+/*SOLVE*/
+header h1 a:hover{
+    color: #FFFAC0;
+    text-decoration: none;
+}
+header ul{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    float:right;
+}
+header ul li{
+    float:left;
+    position: relative;
+}
+header ul li a{
+    display: block;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 22px;
+}
+header ul li a:hover{
+    background: #006669;
+    transition: 0.5s;
+    color: #fff;
+}
+header ul li ul{
+    position: absolute;
+    top: 73px;
+    right: 0px;
+    width: 180px;
+    display: none;
+    z-index: 111;
+}
+header ul li:hover ul{
+    display: block;
+}
+header ul li ul li{
+    width: 100%;
+}
+header ul li ul li a{
+    padding: 10px;
+    background: white;
+    color: #008489;
+}
+/* FOOTER */
+.footer{
+    background-color: #303036;
+    color: #d3d3d3;
+    position: relative;
+}
+/*SIDEBAR*/
+
+.sidebar{
+    margin: 1rem 0;
+    background: #006669;
+    min-height: 600px;
+}
+
+.sidebar ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #d3d3d3;
+}
+.sidebar ul a{
+    padding: 18px;
+    display: block;
+    border-bottom: 1px solid #004044;
+}
+.sidebar ul a:hover{
+    padding-left: 10px;
+    transition: all 0.3s;
+    color: #d3d3d3;
+    text-decoration: none;
+}
+/*POSTS*/
+.posts{
+    min-height: 100%;
+    padding: 40px 100px, 100px;
+    overflow-y: scroll;
+}
+.posts h2{
+    text-align: center;
+    margin: 2rem 0 0 0.4rem;
+
+}
+.posts .title-table div{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+    font-weight: 600;
+}
+.posts .post div{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+}
+.posts .post .red{
+    color: #006669;
+}
+.posts .post .del{
+    color: red;
+}
+.posts .post .id{
+    font-weight: bold;
+}
+.posts .button{
+    margin: 10px;
+}
+.posts .add-post{
+    padding: 8px;
+    position: absolute;
+}
+/*
+.add-post form div{
+    margin: 2rem 0;
+}
+*/

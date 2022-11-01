@@ -28,10 +28,10 @@ include('../../path.php');
             <?php include("../../app/include/sidebar-admin.php"); ?>
 
             <div class="posts col-9">
-              <div class="button row">
-                <a href="create.html" class="col-2 btn btn-success">Add posts</a>
+            <div class="button row">
+                <a href="<?= BASE_URL . "admin/posts/create.php" ;?>" class="col-2 btn btn-success">Создать</a>
                 <span class="col-1"></span>
-                <a href="index.html" class="col-3 btn btn-warning">Manage posts</a>
+                <a href="<?= BASE_URL . "admin/posts/index.php" ;?>" class="col-3 btn btn-warning">Редактировать</a>
               </div> 
               
               <h2>Добавление записи</h2>

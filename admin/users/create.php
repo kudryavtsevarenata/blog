@@ -29,9 +29,9 @@ include('../../path.php');
 
             <div class="posts col-9">
               <div class="button row">
-                <a href="create.html" class="col-2 btn btn-success">Добавить</a>
+                <a href="<?= BASE_URL . "admin/users/create.php" ;?>" class="col-2 btn btn-success">Создать</a>
                 <span class="col-1"></span>
-                <a href="index.html" class="col-3 btn btn-warning">Управление</a>
+                <a href="<?= BASE_URL . "admin/users/index.php" ;?>" class="col-3 btn btn-warning">Управление</a>
               </div> 
               
               <h2>Добавление пользователя</h2>

@@ -1,5 +1,6 @@
 <?php session_start(); 
 include('../../path.php');
+include('../../app/controllers/topics.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,16 +37,21 @@ include('../../path.php');
               
               <h2>Добавление категории</h2>
               <div class="row add-post">
+                <div class="w-100"></div>
+                  <div class="col-12 mb-3 col-md-4 err">
+                    <p><?=$errMsg?></p>
+                  </div>
+                <div class="w-100"></div>
                 <form action="create.php" method="POST">
                     <div class="col">
-                      <input type="text" class="form-control" placeholder="Имя категории" aria-label="Имя категории">
+                      <input name="name" value="<?=$name?>" type="text" class="form-control" placeholder="Имя категории" aria-label="Имя категории">
                     </div>
                     <div class="col">
                         <label for="content" class="form-label">Описание категории</label>
-                        <textarea class="form-control" id="content" rows="6"></textarea>
+                        <textarea name="description" class="form-control" id="content" rows="6"><?=$description?></textarea>
                     </div>
                     <div class="col">
-                      <button class="btn btn-primary" type="submit">Создать категорию</button>
+                      <button name="topic-create" class="btn btn-primary" type="submit">Создать категорию</button>
                     </div>
                 </form>
               </div> 

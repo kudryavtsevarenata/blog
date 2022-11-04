@@ -29,25 +29,33 @@ include('../../app/controllers/topics.php');
             <?php include("../../app/include/sidebar-admin.php"); ?>
 
             <div class="posts col-9">
-            <div class="button row">
+              <div class="button row">
                 <a href="<?= BASE_URL . "admin/topics/create.php" ;?>" class="col-2 btn btn-success">Создать</a>
                 <span class="col-1"></span>
                 <a href="<?= BASE_URL . "admin/topics/index.php" ;?>" class="col-3 btn btn-warning">Управление</a>
               </div> 
-              <h2>Управление категориями</h2>
-              <div class="row title-table">
-                <div class="id col-1"> ID </div>
-                <div class="title col-5"> Название</div>
-                <div class="red col-4"> Управление </div>
+              
+              <h2>Обновление категории</h2>
+              <div class="row add-post">
+                <div class="w-100"></div>
+                  <div class="col-12 mb-3 col-md-4 err">
+                    <p><?=$errMsg?></p>
+                  </div>
+                <div class="w-100"></div>
+                <form action="edit.php" method="POST">
+                    <input name="id" value="<?=$id?>" type="hidden">
+                    <div class="col">
+                      <input name="name" value="<?=$name?>" type="text" class="form-control" placeholder="Имя категории" aria-label="Имя категории">
+                    </div>
+                    <div class="col">
+                        <label for="content" class="form-label">Описание категории</label>
+                        <textarea name="description" class="form-control" id="content" rows="6"><?=$description?></textarea>
+                    </div>
+                    <div class="col">
+                      <button name="topic-edit" class="btn btn-primary" type="submit">Обновить категорию</button>
+                    </div>
+                </form>
               </div> 
-              <?php foreach($topics as $key => $topic):?>
-                <div class="row post">
-                  <div class="id col-1"><?=$key + 1;?></div>
-                  <div class="title col-5"><?=$topic['name'];?></div>
-                  <div class="red col-2"> <a href="edit.php?id=<?=$topic['id'];?>">edit </a></div>
-                  <div class="del col-2"> <a href="edit.php?del_id=<?=$topic['id'];?>"> delete </a> </div>
-                </div> 
-              <?php endforeach; ?>
             </div>
         </div>
     </div>

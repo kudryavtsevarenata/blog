@@ -1,6 +1,5 @@
 <?php
-
-include("../../app/database/db.php");
+include(SITE_ROOT . "/app/database/db.php");
 $errMsg = '';
 $id = '';
 $name = '';
@@ -65,7 +64,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-edit']))
     } 
     elseif (mb_strlen($name, 'UTF-8') <= 2)
     {
-        $errMsg = "Название категории должно быть более двух символов";
+        $errMsg = "Название категории должно содержать более двух символов";
     }
     else
     {
@@ -76,7 +75,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-edit']))
         $id = $_POST['id'];
         $topic_id = update('topics', $id, $topic);
         header('location: '. BASE_URL . 'admin/topics/index.php');
-        
     }
 }
 

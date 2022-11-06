@@ -1,5 +1,6 @@
-<?php session_start(); 
+<?php 
 include('../../path.php');
+include('../../app/controllers/posts.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,16 +37,23 @@ include('../../path.php');
               <h2>Управление записями</h2>
               <div class="row title-table">
                 <div class="id col-1"> ID </div>
-                <div class="title col-5"> Название статьи </div>
-                <div class="author col-2"> Автор </div>
-                <div class="red col-4"> Управление </div>
+                <div class="title col-3"> Название статьи </div>
+                <div class="author col-3"> Автор </div>
+                <div class="red col-5">Управление</div>
               </div> 
               <div class="row post">
-                <div class="id col-1"> 1 </div>
-                <div class="title col-5"> статья типа </div>
-                <div class="author col-2"> Автор типа admin </div>
-                <div class="red col-2"> <a href="#">edit </a></div>
-                <div class="del col-2"> <a href="#"> delete </a> </div>
+                <?php foreach ($postsAdm as $key => $post): ?>
+                  <div class="id col-1"><?=$key + 1;?></div>
+                  <div class="title col-3"><?=$post['title'];?></div>
+                  <div class="author col-3"><?=$post['username'];?></div>
+                  <div class="red col-1"> <a href="#">edit</a></div>
+                  <div class="del col-2"> <a href="#">delete</a> </div>
+                  <?php if ($post['status']): ?>
+                    <div class="status col-2"> <a href="#">unpublish</a> </div>
+                  <?php else: ?>
+                    <div class="status col-2"> <a href="#">publish</a> </div>
+                  <?php endif;?>
+                <?php endforeach ?>
               </div> 
             </div>
         </div>

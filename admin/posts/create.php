@@ -37,13 +37,16 @@ include('../../app/controllers/posts.php');
               
               <h2>Добавление записи</h2>
               <div class="row add-post">
-                <form action="create.php" method="POST">
+                <div class="mb-12 col-12 com-md-12 err">
+                  <?php include "../../app/helps/errorinfo.php"; ?>
+                </div>
+                <form action="create.php" method="POST" enctype="multipart/form-data">
                     <div class="col mb-2">
-                      <input name="title" type="text" class="form-control" placeholder="Title" aria-label="Название статьи">
+                      <input name="title" value="<?=$title;?>" type="text" class="form-control" placeholder="Title" aria-label="Название статьи">
                     </div>
                     <div class="col">
                         <label for="editor" class="form-label">Содержимое статьи</label>
-                        <textarea name="content" id="editor" class="form-control" rows="6"></textarea>
+                        <textarea name="content" value="<?=$content;?>" id="editor" class="form-control" rows="6"></textarea>
                     </div>
                     <div class="input-group col mb-4 mt-4">
                       <input name="img" type="file" class="form-control" id="inputGroupFile02">

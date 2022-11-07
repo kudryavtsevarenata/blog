@@ -1,6 +1,10 @@
 <?php
 include(SITE_ROOT . "/app/database/db.php");
-$errMsg = '';
+if (!$_SESSION)
+{
+    header('location: '. BASE_URL . 'log.php');
+}
+$errMsg = [];
 $id = '';
 $title = '';
 $content = '';
@@ -13,19 +17,43 @@ $postsAdm = selectAllFromPostsWithUser('posts', 'users');
 // создание записи
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_post']))
 {
+    if(!empty($_FILES['img']['name']))
+    {
+        $imgName = time() . "_" . $_FILES['img']['name'];
+        $fileTmpName = $_FILES['img']['tmp_name'];
+        $fileType = $_FILES['img']['type'];
+        $destination = ROOT_PATH . "\assets\images\posts\\" . $imgName;
+
+        if (strpos($fileType, 'image') === false)
+        {
+            array_push($errMsg, "Можно загружать только изображения");
+        }
+
+        $result = move_uploaded_file($fileTmpName, $destination);
+        if ($result)
+        {
+            $_POST['img'] = $imgName;
+        }
+        else
+        {
+            array_push($errMsg, "Произошла ошибка загрузки изображения");
+        }
+    }
+    else
+    {
+        array_push($errMsg, "Произошла ошибка получения изображения");
+    }
     $title = trim($_POST['title']);
     $content = trim($_POST['content']);
     $topic = trim($_POST['topic']);
     $publish = isset($_POST['publish']) ? 1 : 0;
     if ($title === '' || $content ==='' || $topic ==='')
     {
-        $errMsg = "Не все поля заполнены!";
-        echo $errMsg;
+        array_push($errMsg, "Не все поля заполнены!");
     } 
     elseif (mb_strlen($title, 'UTF-8') <= 5)
     {
-        $errMsg = "Название статьи должно быть более пяти символов";
-        echo $errMsg;
+        array_push($errMsg, "Название статьи должно быть более пяти символов");
     }
     else
     {

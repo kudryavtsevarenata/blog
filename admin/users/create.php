@@ -1,5 +1,6 @@
 <?php session_start(); 
 include('../../path.php');
+include('../../app/controllers/users.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,6 +36,9 @@ include('../../path.php');
               </div> 
               
               <h2>Добавление пользователя</h2>
+              <div class="mb-12 col-12 com-md-12 err">
+                  <?php include "../../app/helps/errorinfo.php"; ?>
+              </div>
                 <form action="create.php" method="POST">
                 <div class="w-100"></div>
                <div class="col-12 mb-3 col-md-4">
@@ -57,13 +61,13 @@ include('../../path.php');
                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Повторите пароль..." name="pass-second">
                  </div>
                  <div class="w-100"></div>
-                 <select class="form-select" aria-label="Default select example">
-                      <option selected>User</option>
-                      <option value="1">Admin</option>
-                </select>
+                 <div class="form-check">
+                      <input name="admin" value="1" class="form-check-input" type="checkbox" id="flexCheckChecked">
+                      <label class="form-check-label" for="flexCheckChecked">Админ</label>
+                    </div>
                 <div class="w-100 mb-3"></div>
                     <div class="col">
-                      <button class="btn btn-primary" type="submit">Создать</button>
+                      <button name="create-user" class="btn btn-primary" type="submit">Создать</button>
                     </div>
                 </form>
               </div> 

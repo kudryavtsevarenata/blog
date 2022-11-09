@@ -1,6 +1,7 @@
-<?php include("path.php"); 
-// include ("app/database/db.php");
+<?php include("path.php");
 include("app/controllers/topics.php");
+// $posts = selectAll('posts', ['status' => 1]);
+$posts = selectAllFromPostsWithUserOnIndex('posts', 'users');
 ?>
 <!doctype html>
 <html lang="en">
@@ -70,37 +71,23 @@ include("app/controllers/topics.php");
       <div class = "content row">
         <div class = "main-content col-md-9 col-12">
         <h2>Последние публикации</h2>
-          <div class="post row">
-            <div class="img col-12 col-md-4">
-              <img src="assets/images/image3.jpg" alt="" class="img-thumbnail">
+          <?php foreach ($posts as $post): ?>
+            <div class="post row">
+              <div class="img col-12 col-md-4">
+                <img src="<?=BASE_URL . 'assets/images/posts/' . $post['img'];?>" alt="<?=$post['title']?>" class="img-thumbnail">
+              </div>
+              <div class="post-text col-12 col-md-8">
+                <h3>
+                  <a href="<?=BASE_URL . 'single.php?post=' . $post['id'];?>"><?=substr($post['title'], 0, 120) . '...';?></a>
+                </h3>
+                <i class="far fa-user"><?=$post['username'];?></i>
+                <i class="far fa-calendar"><?=$post['created_date'];?></i>
+                <p class="preview-text">
+                  <?=mb_substr($post['content'], 0, 150, 'UTF-8') . '...';?>
+                </p>
+              </div>
             </div>
-            <div class="post-text col-12 col-md-8">
-              <h3>
-                <a href="#"> Прикольная статья на тему динамического программирования</a>
-              </h3>
-              <i class="far fa-user">Имя автора</i>
-              <i class="far fa-calendar">Mar 11, 2022</i>
-              <p class="preview-text">
-                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              </p>
-            </div>
-          </div>
-
-          <div class="post row">
-            <div class="img col-12 col-md-4">
-              <img src="assets/images/image3.jpg" alt="" class="img-thumbnail">
-            </div>
-            <div class="post-text col-12 col-md-8">
-              <h3>
-                <a href="#"> Прикольная статья на тему динамического программирования</a>
-              </h3>
-              <i class="far fa-user">Имя автора</i>
-              <i class="far fa-calendar">Mar 11, 2022</i>
-              <p class="preview-text">
-                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              </p>
-            </div>
-          </div>
+          <?php endforeach;?>
         </div>
 
         <div class="sidebar col-md-3 col-12">

@@ -172,4 +172,20 @@ $params = [
 // insert('users', $arrData);
 // update('users', 5, $params)
 // delete('users', 5);
+
+// селект для имени автора на главной
+function selectAllFromPostsWithUserOnIndex($table1, $table2)
+{
+    global $pdo;
+    $sql = "SELECT p.*, u.username
+    FROM dinamic_site.$table1 AS p 
+    JOIN dinamic_site.$table2 AS u
+     ON p.id_user = u.id
+     WHERE p.status = 1;";
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+}
 ?>

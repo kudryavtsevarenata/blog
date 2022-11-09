@@ -23,13 +23,21 @@ include("app/controllers/users.php");
   include("app/include/header.php");
   ?>
 
-<!--form-->
+<!--form--> <!--сделать вывод списком-->
 <div class="container reg_form">
     <form class="row justify-content-md-center" method="post" action='log.php'>
         <h2>Авторизация</h2>
         <div class="w-100"></div>
-        <div class="col-12 mb-3 col-md-4 err">
-          <p><?=$errMsg?></p>
+        <div class="col-12 mb-3 col-md-4 err"> 
+          <p><?php if ($errMsg) 
+          { 
+            foreach ($errMsg as $mes)
+            {
+              echo $mes;
+            }
+          }
+          ?>
+          </p>
         </div>
         <div class="w-100"></div>
         <div class="col-12 mb-3 col-md-4">

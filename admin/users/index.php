@@ -1,5 +1,6 @@
 <?php session_start(); 
 include('../../path.php');
+include('../../app/controllers/users.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,20 +34,28 @@ include('../../path.php');
                 <span class="col-1"></span>
                 <a href="<?= BASE_URL . "admin/users/index.php" ;?>" class="col-3 btn btn-warning">Управление</a>
               </div> 
-              <h2>Управление пользователями</h2>
+              <h2>Пользователи</h2>
               <div class="row title-table">
                 <div class="id col-1"> ID </div>
-                <div class="title col-5"> Логин </div>
-                <div class="author col-2"> Роль </div>
-                <div class="red col-4"> Управление </div>
+                <div class="title col-2">Логин</div>
+                <div class="title col-3">Почта</div>
+                <div class="author col-2">Роль</div>
+                <div class="red col-4">Управление</div>
               </div> 
-              <div class="row post">
-                <div class="id col-1"> 1 </div>
-                <div class="title col-5"> And123 </div>
-                <div class="author col-2"> admin </div>
-                <div class="red col-2"> <a href="#">edit </a></div>
-                <div class="del col-2"> <a href="#"> delete </a> </div>
-              </div> 
+              <?php foreach ($users as $key => $user):?>
+                <div class="row post">
+                  <div class="id col-1"><?=$user['id'];?></div>
+                  <div class="title col-2"><?=$user['username'];?></div>
+                  <div class="title col-3"><?=$user['email'];?></div>
+                  <?php if ($user['admin'] == 1):?>
+                    <div class="author col-2">admin</div>
+                  <?php else:?>
+                    <div class="author col-2">user</div>
+                  <?php endif;?>
+                  <div class="red col-2"><a href="edit.php?edit_id=<?=$user['id']?>">edit</a></div>
+                  <div class="del col-2"><a href="index.php?delete_id=<?=$user['id']?>">delete</a></div>
+                </div> 
+              <?php endforeach;?>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 include("app/controllers/topics.php");
 // $posts = selectAll('posts', ['status' => 1]);
 $posts = selectAllFromPostsWithUserOnIndex('posts', 'users');
+$topTopic = selectTopTopicsFromPosts('posts');
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,27 +33,20 @@ $posts = selectAllFromPostsWithUserOnIndex('posts', 'users');
         </div>
         <div id="carousel" class="carousel slide" data-ride="carousel">
             <!-- Индикаторы -->
+              <div class="carousel-inner">
+              <?php foreach($topTopic as $key => $post): ?>
+                <?php if ($key == 0): ?>
+                  <div class="carousel-item active">
+                <?php else: ?>
+                  <div class="carousel-item">
+                <?php endif;?>
+                  <img class="img-fluid" src="<?=BASE_URL . 'assets/images/posts/' . $post['img'];?>" alt="<?=$post['title']?>">
+                  <div class="carousel-caption-hack carousel-caption d-none d-md-block">
+                    <h5><a href = "<?=BASE_URL . 'single.php?post=' . $post['id'];?>"><?=mb_substr($post['title'], 0, 50, 'UTF-8');?></a></h5>
+                  </div>
+                </div>
+              <?php endforeach;?>
 
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="img-fluid" src="assets/images/image1.jpg" alt="...">
-                <div class="carousel-caption-hack carousel-caption d-none d-md-block">
-                  <h5><a href = "#">First slide label</a></h5>
-                </div>
-              </div>
-              
-              <div class="carousel-item">
-                <img class="img-fluid" src="assets/images/image2.jpg" alt="...">
-                <div class="carousel-caption-hack carousel-caption d-none d-md-block">
-                    <h5><a href = "#">Second slide label</a></h5>
-                </div>
-              </div>
-              <div class="carousel-item">
-                  <img class="img-fluid" src="assets/images/image3.jpg" alt="...">
-                <div class="carousel-caption-hack carousel-caption d-none d-md-block">
-                    <h5><a href = "#">Third slide label</a></h5>
-                </div>
-              </div>
             </div>
             <!-- Элементы управления -->
             <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
@@ -78,12 +72,22 @@ $posts = selectAllFromPostsWithUserOnIndex('posts', 'users');
               </div>
               <div class="post-text col-12 col-md-8">
                 <h3>
-                  <a href="<?=BASE_URL . 'single.php?post=' . $post['id'];?>"><?=substr($post['title'], 0, 120) . '...';?></a>
+                  <a href="<?=BASE_URL . 'single.php?post=' . $post['id'];?>">
+                    <?php echo substr($post['title'], 0, 120);
+                      if (strlen($post['title']) > 120)
+                        { echo '...';} 
+                    ?>
+                  </a>
                 </h3>
                 <i class="far fa-user"><?=$post['username'];?></i>
                 <i class="far fa-calendar"><?=$post['created_date'];?></i>
                 <p class="preview-text">
-                  <?=mb_substr($post['content'], 0, 150, 'UTF-8') . '...';?>
+                  <?php
+                    if (strlen($post['content']) > 150)
+                      echo mb_substr($post['content'], 0, 150, 'UTF-8') . '...';
+                    else
+                      echo $post['content'];
+                  ?>
                 </p>
               </div>
             </div>

@@ -188,4 +188,15 @@ function selectAllFromPostsWithUserOnIndex($table1, $table2)
     dbCheckError($query);
     return $query->fetchAll();
 }
+// селект топ
+function selectTopTopicsFromPosts($table1)
+{
+    global $pdo;
+    $sql = "SELECT * FROM dinamic_site.$table1 
+    WHERE id_topic = 5;";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+}
 ?>

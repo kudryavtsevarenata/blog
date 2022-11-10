@@ -43,8 +43,6 @@ function selectAll($table, $params = [])
             $i++;
         }
     }
-    // tt($sql);
-    // exit();
     $query = $pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);
@@ -167,12 +165,6 @@ $params = [
     'admin' => 0,
     'username' => 'Powered'
 ];
-// tt(selectOne('users', $params));
-// tt(selectAll('users', $params));
-// insert('users', $arrData);
-// update('users', 5, $params)
-// delete('users', 5);
-
 // селект для имени автора на главной
 function selectAllFromPostsWithUserOnIndex($table1, $table2)
 {
@@ -199,4 +191,37 @@ function selectTopTopicsFromPosts($table1)
     dbCheckError($query);
     return $query->fetchAll();
 }
+// селект для поиска
+function searchInTitleAndContent($text, $table1, $table2)
+{
+    global $pdo;
+    $text = trim(strip_tags(stripcslashes(htmlspecialchars($text))));
+    $sql = "SELECT p.*, u.username
+    FROM dinamic_site.$table1 AS p 
+    JOIN dinamic_site.$table2 AS u
+    ON p.id_user = u.id
+    WHERE p.status = 1
+    AND p.title LIKE '%$text%' OR p.content LIKE '%$text%';";
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+}
+// селект для одной записи на single
+function selectPostFromPostsWithUserOnSingle($table1, $table2, $id)
+{
+    global $pdo;
+    $sql = "SELECT p.*, u.username
+    FROM dinamic_site.$table1 AS p 
+    JOIN dinamic_site.$table2 AS u
+     ON p.id_user = u.id
+     WHERE p.id = $id;";
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetch();
+}
+
 ?>

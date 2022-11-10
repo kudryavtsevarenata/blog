@@ -1,6 +1,5 @@
 <?php include("path.php");
 include("app/controllers/topics.php");
-// $posts = selectAll('posts', ['status' => 1]);
 $posts = selectAllFromPostsWithUserOnIndex('posts', 'users');
 $topTopic = selectTopTopicsFromPosts('posts');
 ?>
@@ -94,24 +93,8 @@ $topTopic = selectTopTopicsFromPosts('posts');
           <?php endforeach;?>
         </div>
 
-        <div class="sidebar col-md-3 col-12">
-          <div class="section search">
-            <h3>Search</h3>
-            <form action="index.html" method="post">
-              <input type="text" name="search-area" class="text-input" placeholder="Введите запрос">
-            </form>
-          </div>
-          <div class="section topics">
-            <h3>Topics</h3>
-            <ul>
-              <?php foreach ($topics as $key => $topic):?>
-              <li><a href="#"><?=$topic['name'];?></a> </li>
-              <?php endforeach ?>
-            </ul>
-          </div>
-
-        </div>
-
+        <?php include("app/include/sidebar.php");?>
+        
       </div>
     </div>
     

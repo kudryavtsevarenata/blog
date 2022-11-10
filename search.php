@@ -1,9 +1,12 @@
-<?php include ("path.php"); 
+<?php include("path.php");
 include(SITE_ROOT . "/app/database/db.php");
-$post = selectPostFromPostsWithUserOnSingle('posts', 'users', $_GET['post']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search-term']))
+{
+  $posts = searchInTitleAndContent($_POST['search-term'], 'posts', 'users');
+}
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -19,32 +22,47 @@ $post = selectPostFromPostsWithUserOnSingle('posts', 'users', $_GET['post']);
     <title>Blog</title>
   </head>
   <body>
+  
   <?php
   include("app/include/header.php");
   ?>
-
     <!--main-->
     <div class = "container">
       <div class = "content row">
-        <div class = "main-content col-md-9 col-12">
-        <h2><?=$post['title']?></h2>
-          <div class="single_post row">
-            <div class="img col-12">
-              <img src="<?=BASE_URL . 'assets/images/posts/' . $post['img'];?>" alt="<?=$post['title']?>" class="img-thumbnail">
+        <div class = "main-content col-12">
+        <h2>Результаты поиска</h2>
+          <?php foreach ($posts as $post): ?>
+            <div class="post row">
+              <div class="img col-12 col-md-4">
+                <img src="<?=BASE_URL . 'assets/images/posts/' . $post['img'];?>" alt="<?=$post['title']?>" class="img-thumbnail">
+              </div>
+              <div class="post-text col-12 col-md-8">
+                <h3>
+                  <a href="<?=BASE_URL . 'single.php?post=' . $post['id'];?>">
+                    <?php echo substr($post['title'], 0, 120);
+                      if (strlen($post['title']) > 120)
+                        { echo '...';} 
+                    ?>
+                  </a>
+                </h3>
+                <i class="far fa-user"><?=$post['username'];?></i>
+                <i class="far fa-calendar"><?=$post['created_date'];?></i>
+                <p class="preview-text">
+                  <?php
+                    if (strlen($post['content']) > 150)
+                      echo mb_substr($post['content'], 0, 150, 'UTF-8') . '...';
+                    else
+                      echo $post['content'];
+                  ?>
+                </p>
+              </div>
             </div>
-           <div class="info">
-            <i class="far fa-user"><?=$post['username'];?></i>
-            <i class="far fa-calendar"><?=$post['created_date'];?></i>
-           </div>
-            <div class="single_post-text col-12">
-              <?=$post['content'];?>
-            </div>
-          </div>
+          <?php endforeach;?>
         </div>
 
-          <?php include("app/include/sidebar.php");?>
       </div>
     </div>
+    
     <?php include ("app/include/footer.php"); ?>
 
 

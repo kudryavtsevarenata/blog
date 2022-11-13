@@ -17,6 +17,18 @@ include(SITE_ROOT . "/app/controllers/commentaries.php")
             <button name="goComment" type="submit" class="btn btn-primary">Отправить</button>
         </div>
     </form>
-    <h3>Комментарии</h3>
-
+    <?php if (count($comments) > 0):?>
+      <div class="row all-comments">
+        <h3 class="col-12">Комментарии</h3>
+        <?php foreach($comments as $comment): ?>
+          <div class="one-comment col-12">
+            <span><?=$comment['email'];?></span>
+            <span><?=$comment['created_date'];?></span>
+            <div class="col-12 text">
+              <?=$comment['comment'];?>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    <?php endif;?>
 </div>

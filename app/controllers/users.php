@@ -7,6 +7,7 @@ function userAuth($mas)
     $_SESSION['id'] = $mas['id'];
     $_SESSION['login'] = $mas['username'];
     $_SESSION['admin'] = $mas['admin'];
+    $_SESSION['email'] = $mas['email'];
     if ($_SESSION['admin'])
     {
         header('location: ' . BASE_URL . '../../admin/posts/index.php');

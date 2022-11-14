@@ -1,5 +1,5 @@
 <?php
-include(SITE_ROOT . "/app/controllers/commentaries.php")
+include(SITE_ROOT . "/app/controllers/commentaries.php");
 ?>
 <div class="col-md-12 col-12 comments">
     <h3>Оставить комментарий</h3>
@@ -7,7 +7,7 @@ include(SITE_ROOT . "/app/controllers/commentaries.php")
         <input name="page" type="hidden" value="<?=$page;?>">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Email address</label>
-          <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          <input name="email" type="email" class="form-control" id="exampleFormControlInput1" value="<?=$_SESSION['email'];?>" placeholder="name@example.com">
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Оставьте комментарий</label>

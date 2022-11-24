@@ -193,6 +193,13 @@ header ul li ul li a{
     color: #d3d3d3;
     position: relative;
 }
+.about{
+    margin: 20px 0;
+}
+.about p{
+    font-size: 1.4rem;
+    margin-bottom: 0;
+}
 /*
 SINGLE POST
 */
@@ -245,20 +252,21 @@ form div.error{
 /*COMMENTS*/
 .all-comments{
     margin: 1%;
-
 }
 .all-comments h3{
     margin-top: 3%;
 }
 .all-comments .one-comment{
-    border: solid #008489;
-    border-width: 1px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: #cfcfcf;
+    border: 1px solid #008489;
+    border-radius: 4px;
+    margin: 10px 0; 
+    background-color: #bdd3db;
 }
 .all-comments .one-comment span{
     display: inline-flex;
-    margin-bottom: 1%;
-    font-weight: 1000;
+    margin: 1% 0;
+    font-weight: 800;
+}
+.all-comments .text{
+    margin-bottom: 10px;
 }

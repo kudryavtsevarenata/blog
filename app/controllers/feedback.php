@@ -1,5 +1,5 @@
 <?php
-$to = "kudryavtseva.renata@yandex.ru";
+include("../../config.php");
 $tema = "Форма обратной связи";
 $message = '
 <html>

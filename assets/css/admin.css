@@ -136,7 +136,7 @@ header ul li ul li a{
 .posts .title-table div{
     padding: 15px;
     text-align: left;
-    border-bottom: 1px solid #d3d3d3;
+    border-bottom: 3px solid #d3d3d3;
     font-weight: 600;
 }
 .posts .post div{
@@ -159,4 +159,13 @@ header ul li ul li a{
 .posts .add-post{
     padding: 8px;
     position: absolute;
+}
+.posts .form-check-input{
+    width: 10%;
+}
+.posts .form-check-label{
+    margin-left: 3%;
+}
+.posts .form-select{
+    margin-left: 4%;
 }

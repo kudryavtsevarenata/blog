@@ -11,7 +11,7 @@ include('../../app/controllers/posts.php');
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel= "stylesheet" href = "../../assets/css/admin.css">
+    <link rel="stylesheet" href = "../../assets/css/admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap" rel="stylesheet">
@@ -27,7 +27,6 @@ include('../../app/controllers/posts.php');
     <div class="container">
         <div class="row"> 
             <?php include("../../app/include/sidebar-admin.php"); ?>
-
             <div class="posts col-9">
               <div class="button row">
                 <a href="<?= BASE_URL . "admin/posts/create.php" ;?>" class="col-2 btn btn-success">Создать</a>

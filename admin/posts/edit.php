@@ -5,7 +5,6 @@ include('../../app/controllers/posts.php');
 <!doctype html>
 <html lang="ru">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -47,11 +46,11 @@ include('../../app/controllers/posts.php');
                       <input name="img" type="file" class="form-control" id="inputGroupFile02">
                       <label class="input-group-text" for="inputGroupFile02">Upload</label>
                     </div>
-                    <select name="topic" class="form-select mb-2" aria-label="Default select example">
-                      <?php foreach ($topics as $key => $topic): ?>
-                        <option value="<?= $topic['id']?>"><?=$topic['name']?></option>
-                      <?php endforeach; ?>
-                    </select>
+                      <select name="topic" class="form-select mb-2" aria-label="Default select example">
+                        <?php foreach ($topics as $key => $topic): ?>
+                          <option value="<?= $topic['id']?>"><?=$topic['name']?></option>
+                        <?php endforeach; ?>
+                      </select>
                     <div class="form-check">
                         <?php if (empty($publish) or $publish == 0): ?> 
                             <input name="publish" class="form-check-input" type="checkbox" id="flexCheckChecked">

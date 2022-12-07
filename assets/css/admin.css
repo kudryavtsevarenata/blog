@@ -46,7 +46,7 @@ header h1{
 header h1 a{
     color: #ffffff;
 }
-/*SOLVE*/
+
 header h1 a:hover{
     color: #FFFAC0;
     text-decoration: none;
@@ -105,7 +105,6 @@ header ul li ul li a{
     background: #006669;
     min-height: 600px;
 }
-
 .sidebar ul{
     list-style: none;
     margin: 0;

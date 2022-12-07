@@ -110,7 +110,6 @@ $topTopic = selectTopTopicsFromPosts('posts');
       $('.my-form').submit(function(e){
         e.preventDefault();
         let th = $(this);
-        // let mess = $('.mess');
         let btn = th.find('.btn');
         btn.addClass('btn-secondary');
         btn.removeClass('btn-info');
